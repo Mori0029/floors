@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+  </head>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #53565a;
+    }
+
+    img {
+      height: 200px;
+      width: auto;
+    }
+
+    a,
+    a:visited {
+      text-decoration: none;
+      color: #00a9e0;
+    }
+  </style>
+  <body>
+    <img src="/icon.svg" />
+    <pre>
+      <b>an error occured</b>
+      thats all we know..
+
+      <a href="/floors">go to floors</a>
+      <a href="/">go to core</a>
+    </pre>
+  </body>
+</html>
