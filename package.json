@@ -1,0 +1,84 @@
+{
+  "name": "bprobo-floors",
+  "version": "1.0.4",
+  "description": "packout for floor pallets",
+  "private": true,
+  "homepage": "https://gitlab.com/bprobo/floors",
+  "author": "Dominik Serke <ds@bprobo.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/bprobo/floors.git"
+  },
+  "scripts": {
+    "lint": "eslint ./**/*.{ts,tsx}",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx webpack-dev-server -r ts-node/register -r dotenv/config --open",
+    "build:client": "npx webpack -r ts-node/register -r dotenv/config",
+    "build:app.yaml": "node -r ts-node/register -r dotenv/config ./buildAppYaml.ts",
+    "preversion": "npm run lint",
+    "postversion": "git push && git push --tags"
+  },
+  "nodemonConfig": {
+    "execMap": {
+      "ts": "node --inspect -r ts-node/register -r dotenv/config"
+    }
+  },
+  "bugs": {
+    "url": "https://gitlab.com/bprobo/floors/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/html-webpack-plugin": "^3.2.2",
+    "@types/jsonwebtoken": "^8.3.8",
+    "@types/papaparse": "^5.0.3",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-router-dom": "^5.1.3",
+    "@types/uuid": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "@typescript-eslint/parser": "^3.6.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.0.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.4.2",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "prettier": "^2.0.5",
+    "style-loader": "^1.1.3",
+    "svgo": "^1.3.2",
+    "svgo-loader": "^2.2.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.9.5",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.45",
+    "dxf-writer": "^1.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "papaparse": "^5.2.0",
+    "pdf-lib": "^1.4.1",
+    "react": "^16.13.0",
+    "react-dnd": "^10.0.2",
+    "react-dnd-html5-backend": "^10.0.2",
+    "react-dom": "^16.13.0",
+    "react-dropzone": "^10.2.1",
+    "three": "^0.114.0",
+    "uuid": "^7.0.2"
+  }
+}

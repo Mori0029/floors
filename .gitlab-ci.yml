@@ -1,0 +1,53 @@
+stages:
+  - build/staging
+  - deploy/staging
+
+default:
+  image: node:10
+
+variables:
+  NODE_ENV: production
+  JWT_SECRET: $JWT_SECRET
+
+.build: &build-props
+  before_script:
+    # - npm ci
+    - npm install --dev
+  script:
+    - npm run build:app.yaml
+    - npm run build:client
+    # - npm run build:server
+  artifacts:
+    paths:
+      # - bin/
+      - dist/
+      - app.yaml
+    untracked: false
+    expire_in: 30 days
+
+## build staging ##
+
+build/staging:
+  <<: *build-props
+  stage: build/staging
+  variables:
+    SERVER_URL: $STAGING_SERVER_URL
+
+## deploy staging ##
+
+deploy/staging:
+  image: google/cloud-sdk:alpine
+  stage: deploy/staging
+  only:
+    refs:
+      - master
+      # - tags
+  # environment:
+  #   name: staging
+  #   url: $STAGING_SERVER_URL
+  dependencies:
+    - build/staging
+  before_script:
+    - gcloud auth activate-service-account --key-file $STAGING_DEPLOY_CREDENTIALS
+  script:
+    - gcloud app deploy --quiet --promote --project $STAGING_PROJECT_ID

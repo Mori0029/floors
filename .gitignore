@@ -1,0 +1,14 @@
+node_modules/
+.idea/
+
+dist/
+bin/
+app.yaml
+
+/.env
+**/*-credentials.json
+**/__generated__/*
+schema.graphql
+
+build/
+*.css.d.ts

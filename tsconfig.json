@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "allowJs": true,
+    "jsx": "react",
+    "lib": ["es2019", "dom"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "sourceRoot": "server",
+    "outDir": "bin",
+    "preserveConstEnums": true
+  },
+  "exclude": ["node_modules", "dist", "bin"]
+}

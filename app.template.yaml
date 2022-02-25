@@ -1,0 +1,30 @@
+runtime: nodejs10
+service: floors
+
+error_handlers:
+  - file: dist/error.html
+
+env_variables:
+  SERVER_URL: <SERVER_URL>
+  JWT_SECRET: <JWT_SECRET>
+
+handlers:
+  # service route
+  # - url: /.*
+  #   secure: always
+  #   redirect_http_response_code: 301
+  #   script: auto
+
+  # static assets:
+  - url: /floors/(.*\.(js|map|html|svg))$
+    static_files: dist/\1
+    upload: dist/.*$
+    secure: always
+    redirect_http_response_code: 301
+
+  # fall back to index.html
+  - url: .*
+    static_files: dist/index.html
+    upload: dist/index.html
+    secure: always
+    redirect_http_response_code: 301

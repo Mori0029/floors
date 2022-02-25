@@ -1,0 +1,12 @@
+node_modules/
+.idea/
+
+dist/
+bin/
+
+lib/
+
+*credentials.json
+.env
+
+webpack.config.js
